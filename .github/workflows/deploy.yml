@@ -31,6 +31,7 @@ jobs:
           local-dir: "./" 
           server-dir: "/htdocs/"
           exclude: |
+            **/vendor/**
             **/.git*
             **/node_modules/**
             **/tests/**
