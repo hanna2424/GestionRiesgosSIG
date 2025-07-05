@@ -52,11 +52,8 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'url' => env('APP_URL', 'localhost'),
-=======
-    'url' => env('APP_URL', 'https://gestionriesgossig.infinityfreeapp.com/'),
->>>>>>> 1e24eee15aa5027de727a62370507b6da4ca79c5
+    // 'url' => env('APP_URL', 'https://gestionriesgossig.infinityfreeapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
