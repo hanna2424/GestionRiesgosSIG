@@ -16,6 +16,9 @@ jobs:
       - name: 📦 Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader
 
+      - name: 🛠️ Publicar vistas de errores
+        run: php artisan vendor:publish --tag=laravel-errors --force
+        
       - name: 🔧 Optimize Laravel
         run: |
           php artisan config:cache
@@ -31,6 +34,7 @@ jobs:
           local-dir: "./" 
           server-dir: "/gestionriesgossig.infinityfreeapp.com/htdocs/" # Ojo se cambia de ruta por problemas con el domino rf.gd.... (incompatibilidad)
           exclude: |
+            **/vendor/**
             **/.git*
             **/node_modules/**
             **/tests/**
