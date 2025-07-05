@@ -36,5 +36,4 @@ jobs:
             **/node_modules/**
             **/tests/**
             **/.github/**
-            **/.env
             README.md
