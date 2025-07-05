@@ -16,6 +16,9 @@ jobs:
       - name: 📦 Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader
 
+      - name: 🛠️ Publicar vistas de errores
+        run: php artisan vendor:publish --tag=laravel-errors --force
+        
       - name: 🔧 Optimize Laravel
         run: |
           php artisan config:cache
