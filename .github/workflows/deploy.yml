@@ -30,10 +30,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./" 
           server-dir: "/htdocs/"
-          exclude: |
-            **/.git*
-            **/node_modules/**
-            **/tests/**
-            **/.github/**
-            **/.env
-            README.md
