@@ -9,8 +9,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v3
+
+      - name: ⚙️ Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' 
+
+      - name: 📦 Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: 🔧 Optimize Laravel
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -20,3 +34,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./" 
           server-dir: "/htdocs/"
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            **/tests/**
+            **/.github/**
+            **/.env
+            README.md
