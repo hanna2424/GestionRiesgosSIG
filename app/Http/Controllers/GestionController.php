@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 
-class LoginController extends Controller
+class GestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +12,12 @@ class LoginController extends Controller
     public function index()
     {
         //
-        return view('login.login');
+        return view('gestion.index');
+    }
+
+    public function listado()
+    {
+        //
     }
 
     /**
@@ -32,15 +34,6 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         //
-
-        $usuario = Usuario::where('username', $request->username)->first();
-
-        if ($usuario && $request->password === $usuario->password) {
-            Session::put('usuario', $usuario->username); // guardar sesión
-            return redirect('/menu');
-        }
-
-        return redirect('/')->with('error', 'Credenciales incorrectas');
     }
 
     /**
@@ -73,11 +66,5 @@ class LoginController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function logout()
-    {
-        Session::forget('usuario');
-        return redirect('/login');
     }
 }
