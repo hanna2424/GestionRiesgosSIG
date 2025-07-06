@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./" 
-          server-dir: "/gestionriesgossig.infinityfreeapp.com/htdocs/" # Ojo se cambia de ruta por problemas con el domino rf.gd.... (incompatibilidad) .
+          server-dir: "/gestionriesgossig.infinityfreeapp.com/htdocs/" # Ojo se cambia de ruta por problemas con el domino rf.gd.... (incompatibilidad).
           exclude: |
             **/.git*
             **/node_modules/**
