@@ -36,7 +36,7 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="{{ route('gestion.index') }}" class="active"><i class="bi bi-house navicon"></i><span>Inicio</span></a></li>
+        <li><a href="{{ url('/menu') }}" class="active"><i class="bi bi-house navicon"></i><span>Inicio</span></a></li>
         <li class="dropdown"><a href="#" class="active"><i class="bi bi-menu-button navicon"></i> <span>Zonas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
             <li><a href="{{ route('gestion.create') }}">Zonas de Riesgo</a></li>
@@ -87,6 +87,32 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      @if(session('error'))
+        Toast.fire({
+          icon: 'error',
+          title: '{{ session('error') }}'
+        });
+      @elseif(session('success'))
+        Toast.fire({
+          icon: 'success',
+          title: '{{ session('success') }}'
+        });
+      @elseif(session('warning'))
+        Toast.fire({
+          icon: 'warning',
+          title: '{{ session('warning') }}'
+        });
+      @elseif(session('info'))
+        Toast.fire({
+          icon: 'info',
+          title: '{{ session('info') }}'
+        });
+      @endif
+    });
+  </script>
+  <script src="{{ asset('assets/scripts/Toast.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
@@ -100,7 +126,6 @@
 
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
-
 </body>
 
 </html>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('titulo')
-Sistema de Gestion de Vuelos Aereos FAE...
+Sistema de Gestion de Zonas de Riesgo
 @endsection
 
 @section('contenido')
 
 <div class="d-flex justify-content-between align-text">
-    <h1>Listado de vuelos</h1>
+    <h1>Listado de Zonas de Riesgo</h1>
     <div class="d-flex gap-2">
         
     </div>

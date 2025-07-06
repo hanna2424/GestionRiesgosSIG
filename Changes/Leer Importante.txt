@@ -1,0 +1,9 @@
+Mijo en esta carpeta changes me subes los cambios que vas haciendo en tu rama pilasss
+
+Ademas tu no te preocupes no voy a realizar cambios en la carpeta changes por que si no se te hace bolas la rama 
+
+Tu siguele nomas trabajando en main haciendo cambios y subiendolos a main con los comandos de git 
+
+Aqui solo me subes los modulos que vas haciendo o lo que cambiaste, ya sean carpetas o archivos para asi ponerlos en produccion
+
+OJOO LEERASSS

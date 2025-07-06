@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GestionController;
 
-
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/menu', [GestionController::class, 'index']);
 

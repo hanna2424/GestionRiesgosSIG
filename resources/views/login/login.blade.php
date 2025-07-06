@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Iniciar Sesión</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -43,23 +47,18 @@
               </div>
             </div>
 
-
             <h3 class="text-center mb-4">Iniciar Sesión</h3>
 
-            @if(session('error'))
-              <div class="alert alert-danger">{{ session('error') }}</div>
-            @endif
-
-            <form action="{{ route('login.store') }}" method="POST">
+            <form action="{{ route('login.store') }}" method="POST" autocomplete="off">
               @csrf
               <div class="mb-3">
                 <label for="username" class="form-label">Usuario</label>
-                <input type="text" name="username" id="username" class="form-control" required>
+                <input type="text" name="username" id="username" class="form-control" autocomplete="off" required>
               </div>
 
               <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="password" name="password" id="password" class="form-control" autocomplete="new-password" required>
               </div>
 
               <div class="mb-3 text-center">
@@ -75,7 +74,49 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+      
+      form.addEventListener('submit', function () {
+        setTimeout(() => {
+          document.getElementById('username').value = '';
+          document.getElementById('password').value = '';
+        }, 100);
+      });
+    });
+  </script>
+
+
   <!-- Vendor JS Files -->
+   
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      @if(session('error'))
+        Toast.fire({
+          icon: 'error',
+          title: '{{ session('error') }}'
+        });
+      @elseif(session('success'))
+        Toast.fire({
+          icon: 'success',
+          title: '{{ session('success') }}'
+        });
+      @elseif(session('warning'))
+        Toast.fire({
+          icon: 'warning',
+          title: '{{ session('warning') }}'
+        });
+      @elseif(session('info'))
+        Toast.fire({
+          icon: 'info',
+          title: '{{ session('info') }}'
+        });
+      @endif
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ asset('assets/scripts/Toast.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
@@ -86,9 +127,6 @@
   <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('assets/js/main.js') }}"></script>
-
-  <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

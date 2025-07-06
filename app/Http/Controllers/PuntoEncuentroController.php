@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PuntoEncuentroController extends Controller
 {
@@ -12,6 +13,12 @@ class PuntoEncuentroController extends Controller
     public function index()
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        return view('logn.login');
+
     }
 
     /**
