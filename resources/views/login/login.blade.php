@@ -81,10 +81,6 @@
           <!-- You can delete the links only if youve purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-<<<<<<< HEAD
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distribuited by <a href="https://themewagon.com">ThemeWagon</a>
-=======
->>>>>>> 1e24eee15aa5027de727a62370507b6da4ca79c5
         </div>
       </div>
     </div>
