@@ -986,6 +986,87 @@ section,
   fill: #f3268c;
 }
 
+:root {
+  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+.login-logo {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  padding-top: 50px;
+  position: sticky;
+}
+
+.toggle-dropdown,
+.toggle-dropdown {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  flex-shrink: 0;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.toggle-dropdown:hover,
+.toggle-dropdown:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.toggle-dropdown,
+.toggle-dropdown {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  display: block;
+}
+
+.dropdown a,
+.dropdown a:focus {
+  color: --nav-dropdown-color;
+}
+
+.dropdown a:hover,
+.dropdown .active,
+.dropdown .active:focus {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.dropdown ul {
+  position: static;
+  display: none;
+  z-index: 99;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  background-color: var(--nav-dropdown-background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.dropdown ul ul {
+  background-color: rgba(33, 37, 41, 0.1);
+}
+
+.dropdown>.dropdown-active {
+  display: block;
+  background-color: rgba(33, 37, 41, 0.03);
+}
+
+
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/

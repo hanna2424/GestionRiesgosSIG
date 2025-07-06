@@ -40,7 +40,7 @@
         <li class="dropdown"><a href="#" class="active"><i class="bi bi-menu-button navicon"></i> <span>Zonas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
             <li><a href="{{ route('gestion.create') }}">Zonas de Riesgo</a></li>
-            <li><a href="#">Zonas Seguras</a></li>
+            <li><a href="{{ url('/listado/') }}">Zonas Seguras</a></li>
             <li><a href="#">Puntos de Encuentro</a></li>
           </ul>
         </li>
@@ -58,6 +58,22 @@
   </header>
 
   <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <img src="https://foroprosur.org/wp-content/uploads/2022/07/Reunion_GRD_1024.jpg" alt="">
+
+      <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2>Bienvenido, {{ session('usuario') }}</h2>
+            <h3> Sistema para la Gestion de Zonas de Riesgo</h3>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
     
     <div>
       @yield('content')
@@ -126,6 +142,7 @@
 
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+
 </body>
 
 </html>
