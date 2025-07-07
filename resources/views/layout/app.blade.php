@@ -7,6 +7,10 @@
   <title>@yield('titulo')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+  <!-- jquery validator -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.21.0/dist/jquery.validate.min.js"></script>
   
   <!-- Favicons -->
   <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">

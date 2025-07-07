@@ -98,9 +98,6 @@ Reporte Zonas de Riesgo
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-
 <script>
 $(document).ready(function () {
     const MAPBOX_TOKEN = 'pk.eyJ1IjoidmludGFpbHN6IiwiYSI6ImNtY3MzajdkMTB0MngyanEyc2o5bjAwOHEifQ.FkEeSTHc8LB9ws0_jaQ6FA';
@@ -108,7 +105,15 @@ $(document).ready(function () {
     let table = $('#tablaxd').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-        }
+        },
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Excel',
+                className: 'buttons-excel d-none'
+            }
+        ]
     });
 
     $('#btn-excel').on('click', function () {
