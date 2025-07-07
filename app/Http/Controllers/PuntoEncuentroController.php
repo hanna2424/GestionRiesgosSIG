@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Encuentro;
 
 class PuntoEncuentroController extends Controller
 {
@@ -14,10 +16,12 @@ class PuntoEncuentroController extends Controller
     {
         //
         if (!Session::has('usuario')) {
-            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.'); 
         }
 
-        return view('logn.login');
+        $encuentro = Encuentro::all();
+
+        return view('encuentro.nuevo', compact('encuentro'));
 
     }
 
@@ -27,6 +31,11 @@ class PuntoEncuentroController extends Controller
     public function create()
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        return view('encuentro.nuevo');
     }
 
     /**
@@ -35,6 +44,20 @@ class PuntoEncuentroController extends Controller
     public function store(Request $request)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $datos = [
+            'nombre' => $request->nombre,
+            'capacidad' => $request->capacidad,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud,
+            'responsable' => $request->responsable
+        ];
+
+        Encuentro::create($datos);
+        return redirect('/listado1')->with('success', 'Zona agregada correctamente.');
     }
 
     /**
@@ -51,6 +74,12 @@ class PuntoEncuentroController extends Controller
     public function edit(string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $encuentro = Encuentro::findOrFail($id);
+        return view('encuentro.modificar', compact('encuentro'));
     }
 
     /**
@@ -59,6 +88,21 @@ class PuntoEncuentroController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $datos = Encuentro::findOrFail($id);
+
+        $datos->update([
+            'nombre' => $request->nombre,
+            'capacidad' => $request->capacidad,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud,
+            'responsable' => $request->responsable
+        ]);
+
+        return redirect('/listado1')->with('success', 'Punto de encuentro editado exitosamente.');
     }
 
     /**
@@ -67,5 +111,24 @@ class PuntoEncuentroController extends Controller
     public function destroy(string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $encuentro = Encuentro::findOrFail($id);
+        $encuentro->delete();
+
+        return redirect('/listado1')->with('success', 'Punto de Encuentro eliminado correctamente.');
+    }
+
+    public function listado()
+    {
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $encuentro = Encuentro::all();
+
+        return view('encuentro.listado', compact('encuentro'));
     }
 }

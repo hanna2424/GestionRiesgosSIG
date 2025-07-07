@@ -23,6 +23,7 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+  
 </head>
 <body class="bg-light d-flex align-items-center" style="height: 100vh; background-image: url('https://www.gestionderiesgos.gob.ec/wp-content/uploads/2024/01/OXAZ8129.jpg'); ">
 
