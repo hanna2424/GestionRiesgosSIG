@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         if ($usuario && $request->password === $usuario->password) {
             Session::put('usuario', $usuario->username); // guardar sesión
-            return redirect('/menu')->with('success', 'Bienvenido'. $usuario->username);
+            return redirect('/menu')->with('success', 'Bienvenido, '. $usuario->username);
         }
 
         return redirect('/')->with('error', 'Credenciales incorrectas');

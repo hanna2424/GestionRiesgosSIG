@@ -15,10 +15,11 @@ class ZonaRiesgo extends Model
         'riesgo',
         'latitud1',
         'longitud1',
-        'longitud2',
         'latitud2',
         'longitud2',
         'latitud3',
-        'longitud3'
+        'longitud3',
+        'latitud4',
+        'longitud4'
     ];
 }

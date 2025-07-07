@@ -12,6 +12,9 @@
   <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
+  <!-- Sweet Alert -->
+  <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css " rel="stylesheet">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -26,6 +29,7 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="index-page">
@@ -37,21 +41,22 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="{{ url('/menu') }}" class="active"><i class="bi bi-house navicon"></i><span>Inicio</span></a></li>
-        <li class="dropdown"><a href="#" class="active"><i class="bi bi-menu-button navicon"></i> <span>Zonas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chevron-up toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="#" class="active"><i class="bi bi-pin-map-fill"></i> <span>Agregar Zona</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
-            <li><a href="{{ route('gestion.create') }}">Zonas de Riesgo</a></li>
-            <li><a href="{{ url('/listado/') }}">Zonas Seguras</a></li>
-            <li><a href="#">Puntos de Encuentro</a></li>
+            <li class="dropdown"><a href="{{ route('riesgo.create') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+            <li class="dropdown"><a href="{{ route('encuentro.create') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+            <li class="dropdown"><a href="{{ route('seguro.create') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
-
-        <li class="dropdown"><a href="#" class="active"><i class="bi bi-menu-button navicon"></i> <span>Visualizar</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chevron-up toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
-            <li><a href="{{ route('gestion.create') }}">Zonas de Riesgo</a></li>
-            <li><a href="#">Zonas Seguras</a></li>
-            <li><a href="#">Puntos de Encuentro</a></li>
+            <li class="dropdown"><a href="{{ route('riesgo.create') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+            <li class="dropdown"><a href="#" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+            <li class="dropdown"><a href="#" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
+        <li><a href="{{ route('rriesgo.index') }}" class="active"><i class="bi bi-journal-check navicon"></i><span>Reporte</span></a></li>
+        <li><a href="{{ url('/logout/') }}" class="active"><i class="bi bi-box-arrow-left navicon"></i><span>Cerrar Sesion</span></a></li>
       </ul>
     </nav>
 
@@ -102,33 +107,24 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js "></script>
+  
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js"></script>
+  <script src="{{ asset('assets/scripts/Toast.js') }}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       @if(session('error'))
-        Toast.fire({
-          icon: 'error',
-          title: '{{ session('error') }}'
-        });
+        Toast.fire({ icon: 'error', title: '{{ session('error') }}' });
       @elseif(session('success'))
-        Toast.fire({
-          icon: 'success',
-          title: '{{ session('success') }}'
-        });
+        Toast.fire({ icon: 'success', title: '{{ session('success') }}' });
       @elseif(session('warning'))
-        Toast.fire({
-          icon: 'warning',
-          title: '{{ session('warning') }}'
-        });
+        Toast.fire({ icon: 'warning', title: '{{ session('warning') }}' });
       @elseif(session('info'))
-        Toast.fire({
-          icon: 'info',
-          title: '{{ session('info') }}'
-        });
+        Toast.fire({ icon: 'info', title: '{{ session('info') }}' });
       @endif
     });
   </script>
-  <script src="{{ asset('assets/scripts/Toast.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>

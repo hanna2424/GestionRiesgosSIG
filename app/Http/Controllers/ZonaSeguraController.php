@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Seguro;
 
 class ZonaSeguraController extends Controller
 {
@@ -12,6 +15,13 @@ class ZonaSeguraController extends Controller
     public function index()
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::all();
+
+        return view('seguro.nuevo', compact('seguro'));
     }
 
     /**
@@ -20,6 +30,11 @@ class ZonaSeguraController extends Controller
     public function create()
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        return view('seguro.nuevo');
     }
 
     /**
@@ -28,6 +43,20 @@ class ZonaSeguraController extends Controller
     public function store(Request $request)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+        
+        $datos = [
+            'nombre' => $request->nombre,
+            'radio' => $request->radio,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud,
+            'seguridad' => $request->seguridad
+        ];
+
+        Seguro::create($datos);
+        return redirect('/listado2')->with('success', 'Zona segura agregada correctamente.');
     }
 
     /**
@@ -44,6 +73,12 @@ class ZonaSeguraController extends Controller
     public function edit(string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::findOrFail($id);
+        return view('seguro.modificar', compact('seguro'));
     }
 
     /**
@@ -52,6 +87,21 @@ class ZonaSeguraController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::findOrFail($id);
+        
+        $seguro->update([
+            'nombre' => $request->nombre,
+            'radio' => $request->radio,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud,
+            'seguridad' => $request->seguridad
+        ]);
+
+        return redirect('/listado2')->with('success', 'Zona segura editada correctamente.');
     }
 
     /**
@@ -60,5 +110,24 @@ class ZonaSeguraController extends Controller
     public function destroy(string $id)
     {
         //
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::findOrFail($id);
+        $seguro->delete();
+
+        return redirect('/listado2')->with('success', 'Zona segura eliminada correctamente.');
+    }
+    
+    public function listado()
+    {
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::all();
+
+        return view('seguro.listado', compact('seguro'));
     }
 }
