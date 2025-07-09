@@ -36,7 +36,7 @@ Ver Zonas de Riesgo
         });
 
         const infoWindow = new google.maps.InfoWindow();
-        
+
         @foreach($riesgo as $mr)
         (function() {
             let coordenadas = [
@@ -61,10 +61,18 @@ Ver Zonas de Riesgo
 
             poligono.nivelRiesgo = "{{$mr->riesgo}}";
             zonas.push(poligono);
+
+            google.maps.event.addListener(poligono, 'click', function (e) {
+                infoWindow.setContent(`<b>Zona de Riesgo</b><br>{{ $mr->nombre }}<br>{{ $mr->riesgo }}`);
+                infoWindow.setPosition(e.latLng);
+                infoWindow.open(mapa);
+            });
         })();
         @endforeach
     }
+
     window.initMap = initMap;
+
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filtroRiesgo').addEventListener('change', function () {
             const valorSeleccionado = this.value;
@@ -79,4 +87,5 @@ Ver Zonas de Riesgo
         });
     });
 </script>
+
 @endsection
