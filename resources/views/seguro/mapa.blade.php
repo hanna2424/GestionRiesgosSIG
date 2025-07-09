@@ -38,7 +38,7 @@ Ver Zonas Seguras
             const posicion = new google.maps.LatLng({{ $sm->latitud }}, {{ $sm->longitud }});
             let color = '#28a745';
 
-            if ("{{ $zona->seguridad }}" === "Seguridad Media") color = "#ffc107";
+            if ("{{ $sm->seguridad }}" === "Seguridad Media") color = "#ffc107";
             else if ("{{ $zona->seguridad }}" === "Seguridad Baja") color = "#dc3545";
 
             const circulo = new google.maps.Circle({
