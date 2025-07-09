@@ -39,7 +39,7 @@ Ver Zonas Seguras
             let color = '#28a745';
 
             if ("{{ $sm->seguridad }}" === "Seguridad Media") color = "#ffc107";
-            else if ("{{ $zona->seguridad }}" === "Seguridad Baja") color = "#dc3545";
+            else if ("{{ $sm->seguridad }}" === "Seguridad Baja") color = "#dc3545";
 
             const circulo = new google.maps.Circle({
                 center: posicion,
