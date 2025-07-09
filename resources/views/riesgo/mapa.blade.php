@@ -27,27 +27,41 @@ Ver Zonas de Riesgo
 <script type="text/javascript">
     let mapa = [];
 
-    function initMap(){
-        //alert("mapa ok");
-        var latitud_longitud= new google.maps.LatLng(-0.9374805,-78.6161327);
-        var mapa=new google.maps.Map(
-            document.getElementById('mapa-riesgos'),
-            {
-                center:latitud_longitud,
-                zoom:7,
-                mapTypeId:google.maps.MapTypeId.ROADMAP
-            }
-        );
+    function initMap() {
+        const centroEcuador = new google.maps.LatLng(-1.8312, -78.1834);
+        mapa = new google.maps.Map(document.getElementById('mapa-riesgos'), {
+            center: centroEcuador,
+            zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
         @foreach($riesgo as $mr)
-            var coordenadaCliente= new google.maps.LatLng({{$mr->latitud1}},{{$mr->longitud1}},{{$mr->latitud2}},{{$mr->longitud2}},{{$mr->latitud3}},{{$mr->longitud3}},{{$mr->latitud4}},{{$mr->longitud4}});
-            var marcador=new google.maps.Marker({
-                position:coordenadaCliente,
-                map:mapa,
-                title:"{{$mr->nombre}} {{$mr->riesgo}}",
-                draggable:false
+            const coordenadas = [
+                { lat: {{$mr->latitud1}}, lng: {{$mr->longitud1}} },
+                { lat: {{$mr->latitud2}}, lng: {{$mr->longitud2}} },
+                { lat: {{$mr->latitud3}}, lng: {{$mr->longitud3}} },
+                { lat: {{$mr->latitud4}}, lng: {{$mr->longitud4}} }
+            ];
+
+            let color = '#00FF00';
+            if ("{{$mr->riesgo}}" === "Riesgo Medio") color = '#FFFF00';
+            if ("{{$mr->riesgo}}" === "Riesgo Alto") color = '#FF0000';
+
+            const poligono = new google.maps.Polygon({
+                paths: coordenadas,
+                strokeColor: '#000000',
+                strokeOpacity: 0.8,
+                strokeWeight: 1,
+                fillColor: color,
+                fillOpacity: 0.35,
+                map: mapa
             });
+
+            // Guardar polígono y categoría
+            poligono.nivelRiesgo = "{{$mr->riesgo}}";
+            zonas.push(poligono);
         @endforeach
-        
-      }
+    }
+
 </script>
 @endsection
