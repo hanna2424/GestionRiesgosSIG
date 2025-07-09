@@ -57,11 +57,24 @@ Ver Zonas de Riesgo
                 map: mapa
             });
 
-            // Guardar polígono y categoría
             poligono.nivelRiesgo = "{{$mr->riesgo}}";
             zonas.push(poligono);
         @endforeach
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('filtroRiesgo').addEventListener('change', function () {
+            const valorSeleccionado = this.value;
+
+            zonas.forEach(p => {
+                if (valorSeleccionado === 'todos' || p.nivelRiesgo === valorSeleccionado) {
+                    p.setMap(mapa);
+                } else {
+                    p.setMap(null);
+                }
+            });
+        });
+    });
 
 </script>
 @endsection
