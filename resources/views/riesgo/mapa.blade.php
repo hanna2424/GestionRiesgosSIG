@@ -28,15 +28,16 @@ Ver Zonas de Riesgo
     let zonas = [];
 
     function initMap() {
-        const centro = new google.maps.LatLng(-1.8312, -78.1834);
+        const centro = new google.maps.LatLng(-0.9374805,-78.6161327);
         mapa = new google.maps.Map(document.getElementById('mapa-riesgos'), {
             center: centro,
-            zoom: 7,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         @foreach($riesgo as $mr)
-            const coordenadas = [
+        (function() {
+            let coordenadas = [
                 { lat: {{$mr->latitud1}}, lng: {{$mr->longitud1}} },
                 { lat: {{$mr->latitud2}}, lng: {{$mr->longitud2}} },
                 { lat: {{$mr->latitud3}}, lng: {{$mr->longitud3}} },
@@ -59,7 +60,9 @@ Ver Zonas de Riesgo
 
             poligono.nivelRiesgo = "{{$mr->riesgo}}";
             zonas.push(poligono);
+        })();
         @endforeach
+
     }
 
     window.initMap = initMap;
