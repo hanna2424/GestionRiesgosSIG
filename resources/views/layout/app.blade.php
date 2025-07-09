@@ -70,7 +70,6 @@
         <li><a href="{{ url('/logout/') }}" class="active"><i class="bi bi-box-arrow-left navicon"></i><span>Cerrar Sesion</span></a></li>
       </ul>
     </nav>
-
   </header>
 
   <main class="main">

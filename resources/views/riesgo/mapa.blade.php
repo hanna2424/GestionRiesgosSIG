@@ -23,7 +23,7 @@ Ver Zonas de Riesgo
             mapTypeId:google.maps.MapTypeId.ROADMAP
           }
         );
-        @foreach($riesgos as $mr)
+        @foreach($riesgo as $mr)
             var coordenadaCliente= new google.maps.LatLng({{$mr->latitud1}},{{$mr->longitud1}},{{$mr->latitud2}},{{$mr->longitud2}},{{$mr->latitud3}},{{$mr->longitud3}},{{$mr->latitud4}},{{$mr->longitud4}});
             var marcador=new google.maps.Marker({
                 position:coordenadaCliente,

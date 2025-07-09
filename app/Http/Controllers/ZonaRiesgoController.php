@@ -153,6 +153,6 @@ class ZonaRiesgoController extends Controller
 
         $riesgo = ZonaRiesgo::all();
 
-        return view('riesgo.mapa', compact('riesgo'))->with('success', 'Datos geograficos cargados correctamente');
+        return view('riesgo.mapa', compact('riesgo'));
     }
 }
