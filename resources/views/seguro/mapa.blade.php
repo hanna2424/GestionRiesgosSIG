@@ -58,6 +58,7 @@ Ver Zonas Seguras
             circulos.push(circulo);
 
             google.maps.event.addListener(circulo, 'click', function (e) {
+                infoWindow.setContent
           })();
         @endforeach
     }
