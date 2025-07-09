@@ -27,14 +27,15 @@ Ver Zonas Seguras
     let circulos = [];
 
     function initMap() {
-        const centro = new google.maps.LatLng(-0.9374805, -78.6161327);
+        const centro = new google.maps.LatLng(-0.9374805,-78.6161327);
         mapa = new google.maps.Map(document.getElementById('mapa-seguro'), {
             center: centro,
-            zoom: 7,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         @foreach($seguro as $sm)
+          (function() {
             const posicion = new google.maps.LatLng({{ $sm->latitud }}, {{ $sm->longitud }});
             let color = '#28a745';
 
@@ -49,11 +50,13 @@ Ver Zonas Seguras
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
                 fillColor: color,
-                fillOpacity: 0.35
+                fillOpacity: 0.35,
+                title:"{{$sm->nombre}} {{$sm->seguridad}}"
             });
 
             circulo.nivelSeguridad = "{{ $sm->seguridad }}";
             circulos.push(circulo);
+          })();
         @endforeach
     }
 
