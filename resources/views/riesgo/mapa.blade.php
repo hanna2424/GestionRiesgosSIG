@@ -62,6 +62,8 @@ Ver Zonas de Riesgo
         @endforeach
     }
 
+    window.initMap = initMap;
+
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filtroRiesgo').addEventListener('change', function () {
             const valorSeleccionado = this.value;
@@ -75,6 +77,6 @@ Ver Zonas de Riesgo
             });
         });
     });
-
 </script>
+
 @endsection

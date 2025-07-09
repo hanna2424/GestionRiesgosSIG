@@ -40,9 +40,6 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-
-  <!-- importando la api de google maps --> 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
 </head>
 
 <body class="index-page">
@@ -139,6 +136,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+  <!-- importando la api de google maps --> 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
 </body>
 
 </html>
