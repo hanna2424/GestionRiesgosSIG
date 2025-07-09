@@ -25,17 +25,18 @@ Ver Zonas de Riesgo
 <div id="mapa-riesgos" style="border:2px solid black;height:500px;width:100%;"></div>
 
 <script type="text/javascript">
+    let mapa = [];
 
-      function initMap(){
+    function initMap(){
         //alert("mapa ok");
         var latitud_longitud= new google.maps.LatLng(-0.9374805,-78.6161327);
         var mapa=new google.maps.Map(
-          document.getElementById('mapa-riesgos'),
-          {
-            center:latitud_longitud,
-            zoom:7,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-          }
+            document.getElementById('mapa-riesgos'),
+            {
+                center:latitud_longitud,
+                zoom:7,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            }
         );
         @foreach($riesgo as $mr)
             var coordenadaCliente= new google.maps.LatLng({{$mr->latitud1}},{{$mr->longitud1}},{{$mr->latitud2}},{{$mr->longitud2}},{{$mr->latitud3}},{{$mr->longitud3}},{{$mr->latitud4}},{{$mr->longitud4}});
