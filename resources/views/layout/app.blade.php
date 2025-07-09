@@ -40,16 +40,10 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-
-  <!-- importando la api de google maps --> 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
-
 </head>
 
 <body class="index-page">
-
   <header id="header" class="header d-flex flex-column justify-content-center">
-
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <nav id="navmenu" class="navmenu">
@@ -64,16 +58,15 @@
         </li>
         <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
+            <li class="dropdown"><a href="{{ url('/mapariesgos') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+            <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+            <li class="dropdown"><a href="{{ url('/mapaseguro') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
         <li><a href="{{ route('rriesgo.index') }}" class="active"><i class="bi bi-journal-check navicon"></i><span>Reporte</span></a></li>
         <li><a href="{{ url('/logout/') }}" class="active"><i class="bi bi-box-arrow-left navicon"></i><span>Cerrar Sesion</span></a></li>
       </ul>
     </nav>
-
   </header>
 
   <main class="main">
@@ -143,6 +136,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+  <!-- importando la api de google maps --> 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
 </body>
 
 </html>

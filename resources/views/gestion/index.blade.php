@@ -14,7 +14,7 @@
 
   <!-- Sweet Alert -->
   <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css " rel="stylesheet">
-
+wwedwewed
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -45,14 +45,14 @@
           <ul>
             <li class="dropdown"><a href="{{ route('riesgo.create') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
             <li class="dropdown"><a href="{{ route('encuentro.create') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
-            <li class="dropdown"><a href="{{ route('seguro.create') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
+            <li class="dropdown"><a href="{{ route('seguro.create') }}"  class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
         <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
-            <li class="dropdown"><a href="{{ route('riesgo.create') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
+            <li class="dropdown"><a href="{{ url('/mapariesgos') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+            <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+            <li class="dropdown"><a href="{{ url('/mapaseguro') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
         <li><a href="{{ route('rriesgo.index') }}" class="active"><i class="bi bi-journal-check navicon"></i><span>Reporte</span></a></li>
