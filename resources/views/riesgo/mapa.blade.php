@@ -63,7 +63,6 @@ Ver Zonas de Riesgo
     }
 
     window.initMap = initMap;
-
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filtroRiesgo').addEventListener('change', function () {
             const valorSeleccionado = this.value;
