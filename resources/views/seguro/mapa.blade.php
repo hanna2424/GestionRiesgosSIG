@@ -34,4 +34,4 @@ Ver Zonas de Riesgo
         @endforeach
       }
 </script>
-@endsection   
+@endsection
