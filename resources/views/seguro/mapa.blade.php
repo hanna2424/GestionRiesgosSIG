@@ -30,7 +30,7 @@ Ver Zonas de Riesgo
                 map:mapa,
                 title:"{{$mr->nombre}} {{$mr->seguridad}}",
                 draggable:false
-            });
+            });   
         @endforeach
         
       }
