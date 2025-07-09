@@ -43,15 +43,12 @@
 
   <!-- importando la api de google maps --> 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
-
 </head>
 
 <body class="index-page">
-
   <header id="header" class="header d-flex flex-column justify-content-center">
-
     <i class="header-toggle d-xl-none bi bi-list"></i>
-
+    
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="{{ url('/menu') }}" class="active"><i class="bi bi-house navicon"></i><span>Inicio</span></a></li>
