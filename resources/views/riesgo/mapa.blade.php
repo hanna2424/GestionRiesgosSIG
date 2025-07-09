@@ -25,12 +25,13 @@ Ver Zonas de Riesgo
 <div id="mapa-riesgos" style="border:2px solid black;height:500px;width:100%;"></div>
 
 <script type="text/javascript">
-    let mapa = [];
+    let mapa;
+    let zonas = [];
 
     function initMap() {
-        const centroEcuador = new google.maps.LatLng(-1.8312, -78.1834);
+        const centror = new google.maps.LatLng(-1.8312, -78.1834);
         mapa = new google.maps.Map(document.getElementById('mapa-riesgos'), {
-            center: centroEcuador,
+            center: centro,
             zoom: 7,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
