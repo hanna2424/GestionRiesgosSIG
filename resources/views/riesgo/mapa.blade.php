@@ -42,7 +42,6 @@ Ver Zonas de Riesgo
                 { lat: {{$mr->latitud3}}, lng: {{$mr->longitud3}} },
                 { lat: {{$mr->latitud4}}, lng: {{$mr->longitud4}} }
             ];
-
             let color = '#00FF00';
             if ("{{$mr->riesgo}}" === "Riesgo Medio") color = '#FFFF00';
             if ("{{$mr->riesgo}}" === "Riesgo Alto") color = '#FF0000';
