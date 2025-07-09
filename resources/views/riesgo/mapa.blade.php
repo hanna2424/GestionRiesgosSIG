@@ -5,6 +5,20 @@ Ver Zonas de Riesgo
 @endsection
 
 @section('contenido')
+
+
+<div class="form-group">
+    <label for="filtroRiesgo">Filtrar por Nivel de Riesgo:</label>
+    <select id="filtroRiesgo" class="form-control" style="width: 300px;">
+        <option value="todos">Mostrar Todos</option>
+        <option value="Riesgo Alto">Riesgo Alto</option>
+        <option value="Riesgo Medio">Riesgo Medio</option>
+        <option value="Riesgo Bajo">Riesgo Bajo</option>
+    </select>
+</div>
+<br>
+
+
 <br>
 <h1>Mapa de Clientes</h1>
 <br>
