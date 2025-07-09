@@ -10,7 +10,7 @@ Ver Zonas de Riesgo
 <div class="form-group">
     <label for="filtroRiesgo">Filtrar por Nivel de Riesgo:</label>
     <select id="filtroRiesgo" class="form-control" style="width: 300px;">
-        <option value="todos">Mostrar Todos</option>
+        <option value="todos" disabled selected>---Mostrar Todos---</option>
         <option value="Riesgo Alto">Riesgo Alto</option>
         <option value="Riesgo Medio">Riesgo Medio</option>
         <option value="Riesgo Bajo">Riesgo Bajo</option>
