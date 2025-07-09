@@ -130,3 +130,60 @@ Nueva Zona Segura
     }
     //dibujando el circulo script
 </script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#frm_val').validate({
+            rules: {
+                nombre: { required: true, minlength: 3 },
+                seguridad: { required: true },
+                radio: { required: true, number: true, min: 10 },
+                latitud: { required: true },
+                longitud: { required: true }
+            },
+            messages: {
+                nombre: {
+                    required: "El nombre es obligatorio",
+                    minlength: "Debe tener al menos 3 caracteres"
+                },
+                seguridad: {
+                    required: "Seleccione el tipo de seguridad"
+                },
+                radio: {
+                    required: "Ingrese el radio de la zona",
+                    number: "Debe ser un número válido",
+                    min: "Debe ser mayor a 10 metros"
+                },
+                latitud: {
+                    required: "Seleccione la ubicación en el mapa"
+                },
+                longitud: {
+                    required: "Seleccione la ubicación en el mapa"
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.addClass('text-danger');
+                error.insertAfter(element);
+            },
+            highlight: function(element) {
+                $(element).addClass('is-invalid').removeClass('is-valid');
+            },
+            unhighlight: function(element) {
+                $(element).removeClass('is-invalid').addClass('is-valid');
+            },
+            invalidHandler: function(event, validator) {
+                if (validator.numberOfInvalids()) {
+                    Toast.fire({
+                        icon: 'warning',
+                        title: 'Por favor complete correctamente los campos obligatorios.'
+                    });
+                }
+            },
+            ,
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    });
+</script>
