@@ -57,7 +57,7 @@ Ver Zonas Seguras
             circulo.nivelSeguridad = "{{ $sm->seguridad }}";
             circulos.push(circulo);
 
-            google.
+            google.maps.
             
           })();
         @endforeach
