@@ -131,4 +131,15 @@ class PuntoEncuentroController extends Controller
 
         return view('encuentro.listado', compact('encuentro'));
     }
+
+    public function mapa()
+    {
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $encuentro = Encuentro::all();
+
+        return view('encuentro.mapa', compact('encuentro'))->with('success', 'Datos geograficos cargados correctamente');
+    }
 }
