@@ -77,5 +77,3 @@ Ver Zonas de Riesgo
     });
 </script>
 @endsection
-
-
