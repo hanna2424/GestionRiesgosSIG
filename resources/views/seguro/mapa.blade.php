@@ -56,14 +56,14 @@ Ver Zonas Seguras
 
             circulo.nivelSeguridad = "{{ $sm->seguridad }}";
             circulos.push(circulo);
+          })();
+        @endforeach
 
-            google.maps.event.addListener(circulo, 'click', function (e) {
+        google.maps.event.addListener(circulo, 'click', function (e) {
                 infoWindow.setContent("<b>{{ $sm->nombre }}</b><br>{{ $sm->seguridad }}<br>Radio: {{ $sm->radio }} m");
                 infoWindow.setPosition(e.latLng);
                 infoWindow.open(mapa);
             });
-          })();
-        @endforeach
     }
 
     window.initMap = initMap;
