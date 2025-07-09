@@ -60,7 +60,6 @@ Ver Zonas de Riesgo
             zonas.push(poligono);
         })();
         @endforeach
-
     }
 
     window.initMap = initMap;
