@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'deelopment'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://gestionriesgossig.rf.gf/'),
+    'url' => env('APP_URL', 'localhost'),
+    // 'url' => env('APP_URL', 'https://gestionriesgossig.infinityfreeapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
