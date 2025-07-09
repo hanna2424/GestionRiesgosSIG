@@ -33,5 +33,5 @@ Ver Zonas de Riesgo
             });   
         @endforeach
       }
-</script>
+</script>   
 @endsection
