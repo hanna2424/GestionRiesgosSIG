@@ -58,7 +58,7 @@ Ver Zonas Seguras
             circulos.push(circulo);
 
             google.maps.event.addListener(circulo, 'click', function (e) {
-                infoWindow.setContent
+                infoWindow.setContent("<b>{{ $sm->nombre }}</b><br>{{ $sm->seguridad }}<br>Radio: {{ $sm->radio }} m"
           })();
         @endforeach
     }
