@@ -32,7 +32,6 @@ Ver Zonas de Riesgo
                 draggable:false
             });   
         @endforeach
-           
       }
 </script>
 @endsection   
