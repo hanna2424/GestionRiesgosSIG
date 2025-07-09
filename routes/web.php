@@ -33,3 +33,8 @@ Route::resource('rencuentro', Reporte3Controller::class);
 Route::get('/listado', [ZonaRiesgoController::class, 'listado']);
 Route::get('/listado1', [PuntoEncuentroController::class, 'listado']);
 Route::get('/listado2', [ZonaSeguraController::class, 'listado']);
+
+// Mapas
+Route::get('/mapariesgos', [ZonaRiesgoController::class], 'mapa');
+Route::get('/mapaencuentros', [PuntoEncuentroController::class], 'mapa');
+Route::get('/mapaseguro', [ZonaSeguraController::class], 'mapa');
