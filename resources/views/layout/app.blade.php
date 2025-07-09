@@ -48,7 +48,7 @@
 <body class="index-page">
   <header id="header" class="header d-flex flex-column justify-content-center">
     <i class="header-toggle d-xl-none bi bi-list"></i>
-    
+
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="{{ url('/menu') }}" class="active"><i class="bi bi-house navicon"></i><span>Inicio</span></a></li>
@@ -61,9 +61,9 @@
         </li>
         <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
           <ul>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
-            <li class="dropdown"><a href="#" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
+            <li class="dropdown"><a href="{{ url('/mapariesgos') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+            <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+            <li class="dropdown"><a href="{{ url('/mapaseguro') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
           </ul>
         </li>
         <li><a href="{{ route('rriesgo.index') }}" class="active"><i class="bi bi-journal-check navicon"></i><span>Reporte</span></a></li>
