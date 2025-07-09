@@ -34,6 +34,9 @@ Ver Zonas de Riesgo
             zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
+
+        const infoWindow = new google.maps.InfoWindow();
+        
         @foreach($riesgo as $mr)
         (function() {
             let coordenadas = [
