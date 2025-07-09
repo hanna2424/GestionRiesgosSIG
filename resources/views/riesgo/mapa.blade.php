@@ -1,4 +1,4 @@
-@extends ('layout.app')
+@extends('layout.app')
 
 @section ('titulo')
 Ver Zonas de Riesgo
@@ -10,7 +10,7 @@ Ver Zonas de Riesgo
 <div class="form-group">
     <label for="filtroRiesgo">Filtrar por Nivel de Riesgo:</label>
     <select id="filtroRiesgo" class="form-control" style="width: 300px;">
-        <option value="todos" disabled selected>---Mostrar Todos---</option>
+        <option value="todos" selected>---Mostrar Todos---</option>
         <option value="Riesgo Alto">Riesgo Alto</option>
         <option value="Riesgo Medio">Riesgo Medio</option>
         <option value="Riesgo Bajo">Riesgo Bajo</option>
@@ -18,9 +18,8 @@ Ver Zonas de Riesgo
 </div>
 <br>
 
-
 <br>
-<h1>Mapa de Clientes</h1>
+<h1>Mapa de Zonas de Riesgo</h1>
 <br>
 <div id="mapa-riesgos" style="border:2px solid black;height:500px;width:100%;"></div>
 
@@ -29,7 +28,7 @@ Ver Zonas de Riesgo
     let zonas = [];
 
     function initMap() {
-        const centror = new google.maps.LatLng(-1.8312, -78.1834);
+        const centro = new google.maps.LatLng(-1.8312, -78.1834);
         mapa = new google.maps.Map(document.getElementById('mapa-riesgos'), {
             center: centro,
             zoom: 7,
