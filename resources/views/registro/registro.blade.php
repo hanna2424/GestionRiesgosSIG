@@ -59,14 +59,20 @@
 
               <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control" autocomplete="new-password" required>
+                <input type="password" name="password" id="password" class="form-control" required>
               </div>
 
-              <div class="mb-3 text-center">
-                <a href="/inicio/">¿No tienes cuenta? Ingresa como invitado</a>
+              <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Repetir Contraseña</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
               </div>
 
-              <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" autocomplete="off" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
             </form>
 
           </div>

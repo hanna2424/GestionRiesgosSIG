@@ -63,7 +63,7 @@
               </div>
 
               <div class="mb-3 text-center">
-                <a href="/inicio/">¿No tienes cuenta? Ingresa como invitado</a>
+                <a href="{{ route('registro.index') }}">¿No tienes cuenta? Crea una</a>
               </div>
 
               <button type="submit" class="btn btn-primary w-100">Ingresar</button>
