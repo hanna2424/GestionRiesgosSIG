@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/iconolptm.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -39,7 +39,7 @@
 
             <!-- Imagen centrada y redonda -->
             <div class="text-center mb-3">
-              <img src="{{ asset('assets/img/favicon.png') }}"
+              <img src="{{ asset('assets/img/iconolptm.png') }}"
                   alt="img_logo"
                   class="rounded-circle login-logo mb-3">
               

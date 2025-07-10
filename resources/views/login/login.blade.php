@@ -39,7 +39,7 @@
 
             <!-- Imagen centrada y redonda -->
             <div class="text-center mb-3">
-              <img src="{{ asset('assets/img/favicon.png') }}"
+              <img src="{{ asset('assets/img/iconolptm.png') }}"
                   alt="img_logo"
                   class="rounded-circle login-logo mb-3">
               
