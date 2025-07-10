@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\GestionController;
 use App\Http\Controllers\ZonaRiesgoController;
 use App\Http\Controllers\ZonaSeguraController;
@@ -19,6 +20,7 @@ Route::get('/menu', [GestionController::class, 'index']);
 
 // Ingreso a metodos de los controladores
 Route::resource('login', LoginController::class);
+Route::resource('registro', RegistroController::class);
 Route::resource('gestion', GestionController::class);
 Route::resource('riesgo', ZonaRiesgoController::class);
 Route::resource('encuentro', PuntoEncuentroController::class);

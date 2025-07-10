@@ -144,15 +144,4 @@ class ZonaRiesgoController extends Controller
 
         return view('riesgo.listado', compact('riesgo'));
     }
-
-    public function mapa()
-    {
-        if (!Session::has('usuario')) {
-            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
-        }
-
-        $riesgo = ZonaRiesgo::all();
-
-        return view('riesgo.mapa', compact('riesgo'));
-    }
 }

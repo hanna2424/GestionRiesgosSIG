@@ -124,7 +124,7 @@ $(document).ready(function () {
         const data = table.rows({ search: 'applied' }).data().toArray();
 
         // URL única para consulta completa (cámbiala por la real)
-        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/rriesgo';
+        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/mapariesgos';
 
         // Generar QR único para toda la consulta
         const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlConsultaCompleta)}&size=150`;

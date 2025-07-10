@@ -42,8 +42,9 @@ class LoginController extends Controller
 
         $usuario = Usuario::where('username', $request->username)->first();
 
-        if ($usuario && $request->password === $usuario->password) {
-            Session::put('usuario', $usuario->username); // guardar sesión
+        if ($usuario && Hash::check($request->password, $usuario->password)) {
+            Session::put('usuario', $usuario->username);
+            Session::put('rol', $usuario->rol);
             return redirect('/menu')->with('success', 'Bienvenido, '. $usuario->username);
         }
 

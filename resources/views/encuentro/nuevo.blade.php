@@ -61,7 +61,7 @@ Nuevo Punto de Encuentro
         $('#frm_val').validate({
             rules: {
                 nombre: { required: true, minlength: 3 },
-                capacidad: { required: true, number: true, min: 1, max: 500 },
+                capacidad: { required: true, number: true, min: 1, max: 200 },
                 responsable: { required: true, minlength: 3 },
                 latitud: { required: true },
                 longitud: { required: true }
@@ -75,7 +75,7 @@ Nuevo Punto de Encuentro
                     required: "La capacidad es obligatoria",
                     number: "Debe ser un número válido",
                     min: "Debe ser mayor que 0",
-                    max: "No puede ser mayor a 500"
+                    max: "No puede ser mayor a 200"
                 },
                 responsable: {
                     required: "El responsable es obligatorio",
