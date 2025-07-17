@@ -1,38 +1,94 @@
-@extends ('layout.app')
+@extends('layout.app')
 
 @section ('titulo')
-Ver Zonas de Riesgo
+Ver Zonas Seguras
 @endsection
 
 @section('contenido')
+
+
+<div class="form-group">
+    <label for="filtroSeguridad">Filtrar por Nivel de Seguridad:</label>
+    <select id="filtroSeguridad" class="form-control" style="width: 300px;">
+        <option value="todos" selected>---Mostrar Todos---</option>
+        <option value="Seguridad Alta">Seguridad Alta</option>
+        <option value="Seguridad Media">Seguridad Media</option>
+        <option value="Seguridad Baja">Seguridad Baja</option>
+    </select>
+</div>
 <br>
+
 <h1>Mapa de Zonas Seguras</h1>
 <br>
 <div id="mapa-seguro" style="border:2px solid black;height:500px;width:100%;"></div>
 
 <script type="text/javascript">
+    let mapa;
+    let circulos = [];
 
-      function initMap(){
-        //alert("mapa ok");
-        var latitud_longitud= new google.maps.LatLng(-0.9374805,-78.6161327);
-        var mapa=new google.maps.Map(
-          document.getElementById('mapa-seguro'),
-          {
-            center:latitud_longitud,
-            zoom:7,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-          }
-        );  
-        @foreach($riesgos as $mr)
-            var coordenadaCliente= new google.maps.LatLng({{$mr->latitud}},{{$mr->longitud}});
-            var marcador=new google.maps.Marker({
-                position:coordenadaCliente,
-                map:mapa,
-                title:"{{$mr->nombre}} {{$mr->seguridad}}",
-                draggable:false
-            });   
+    function initMap() {
+        const centro = new google.maps.LatLng(-0.9374805, -78.6161327);
+        mapa = new google.maps.Map(document.getElementById('mapa-seguro'), {
+            center: centro,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        const infoWindow = new google.maps.InfoWindow();
+
+        @foreach($seguro as $sm)
+        (function() {
+            const posicion = new google.maps.LatLng({{ $sm->latitud }}, {{ $sm->longitud }});
+            let color = '#28a745';
+
+            if ("{{ $sm->seguridad }}" === "Seguridad Media") color = "#ffc107";
+            else if ("{{ $sm->seguridad }}" === "Seguridad Baja") color = "#dc3545";
+
+            const circulo = new google.maps.Circle({
+                center: posicion,
+                radius: {{ $sm->radio }},
+                map: mapa,
+                strokeColor: color,
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: color,
+                fillOpacity: 0.35
+            });
+
+            circulo.nivelSeguridad = "{{ $sm->seguridad }}";
+            circulos.push(circulo);
+
+            google.maps.event.addListener(circulo, 'click', function (e) {
+                infoWindow.setContent(`<b>{{ $sm->nombre }}</b><br>{{ $sm->seguridad }}<br>Radio: {{ $sm->radio }} m`);
+                infoWindow.setPosition(e.latLng);
+                infoWindow.open(mapa);
+            });
+        })();
         @endforeach
+<<<<<<< HEAD
       }
 </script>   
 @endsection
 
+=======
+    }
+
+    window.initMap = initMap;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('filtroSeguridad').addEventListener('change', function () {
+            const valorSeleccionado = this.value;
+
+            circulos.forEach(circulo => {
+                if (valorSeleccionado === 'todos' || circulo.nivelSeguridad === valorSeleccionado) {
+                    circulo.setMap(mapa);
+                } else {
+                    circulo.setMap(null);
+                }
+            });
+        });
+    });
+</script>
+
+@endsection
+>>>>>>> a85007892d0b3f8e568d87a85b3eb8df97d85483
