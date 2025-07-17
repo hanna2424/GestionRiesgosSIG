@@ -86,4 +86,8 @@ Ver Puntos de Encuentro
         });
     });
 </script>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> d8dad7ca5a6828515ee92c1c7279c43159e91ff4
