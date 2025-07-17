@@ -65,12 +65,6 @@ Ver Zonas Seguras
             });
         })();
         @endforeach
-<<<<<<< HEAD
-      }
-</script>   
-@endsection
-
-=======
     }
 
     window.initMap = initMap;
@@ -91,4 +85,3 @@ Ver Zonas Seguras
 </script>
 
 @endsection
->>>>>>> a85007892d0b3f8e568d87a85b3eb8df97d85483
