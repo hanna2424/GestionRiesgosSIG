@@ -42,6 +42,7 @@ Ver Puntos de Encuentro
                 map: mapa,
                 title: "{{ $punto->nombre }}",
             });
+            
 
             marcador.capacidad = {{ $punto->capacidad }};
 
