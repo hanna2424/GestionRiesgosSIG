@@ -42,7 +42,7 @@ Ver Puntos de Encuentro
                 map: mapa,
                 title: "{{ $punto->nombre }}",
             });
-            
+
 
             marcador.capacidad = {{ $punto->capacidad }};
 
@@ -65,7 +65,7 @@ Ver Puntos de Encuentro
             const valor = this.value;
 
             marcadores.forEach(marcador => {
-                const capacidad = marcador.capacidad;
+                const capacidad = Number(marcador.capacidad);
                 let mostrar = false;
 
                 if (valor === 'todos') {
