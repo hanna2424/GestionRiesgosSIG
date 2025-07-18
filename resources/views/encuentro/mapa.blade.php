@@ -86,4 +86,6 @@ Ver Puntos de Encuentro
         });
     });
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWwoWMmNZh56GuF5qKh3_zTCNjnvsU0&libraries=places&callback=initMap"></script>
+
 @endsection
