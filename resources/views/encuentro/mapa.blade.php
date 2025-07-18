@@ -12,7 +12,7 @@ Ver Puntos de Encuentro
         <option value="todos" selected>--- Mostrar Todos ---</option>
         <option value="10-500">10 a 500</option>
         <option value="501-5000">501 a 5000</option>
-        <option value="9999+">9999 o más</option>
+        <option value="5001+">5001 o más</option>
     </select>
 </div>
 
@@ -43,6 +43,7 @@ Ver Puntos de Encuentro
                 title: "{{ $punto->nombre }}",
             });
 
+
             marcador.capacidad = {{ $punto->capacidad }};
 
             marcador.addListener('click', function () {
@@ -64,7 +65,7 @@ Ver Puntos de Encuentro
             const valor = this.value;
 
             marcadores.forEach(marcador => {
-                const capacidad = marcador.capacidad;
+                const capacidad = Number(marcador.capacidad);
                 let mostrar = false;
 
                 if (valor === 'todos') {
@@ -73,7 +74,7 @@ Ver Puntos de Encuentro
                     mostrar = true;
                 } else if (valor === '501-5000' && capacidad >= 501 && capacidad <= 5000) {
                     mostrar = true;
-                } else if (valor === '9999+' && capacidad >= 9999) {
+                } else if (valor === '5001+' && capacidad >= 5001) {
                     mostrar = true;
                 }
 
