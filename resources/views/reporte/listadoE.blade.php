@@ -94,7 +94,15 @@ $(document).ready(function () {
     let table = $('#tablaxd').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-        }
+        },
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Excel',
+                className: 'buttons-excel d-none'
+            }
+        ]
     });
 
     $('#btn-excel').on('click', function () {
@@ -104,7 +112,7 @@ $(document).ready(function () {
     $('#btn-custom-pdf').on('click', async function () {
         const data = table.rows({ search: 'applied' }).data().toArray();
 
-        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/rencuentro';
+        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/mapaencuentros';
 
         const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlConsultaCompleta)}&size=150`;
         const qrImage = await getBase64ImageFromURL(qrUrl).catch(() => null);

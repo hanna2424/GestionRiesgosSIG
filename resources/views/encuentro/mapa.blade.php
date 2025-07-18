@@ -10,9 +10,9 @@ Ver Puntos de Encuentro
     <label for="filtroCapacidad">Filtrar por Capacidad:</label>
     <select id="filtroCapacidad" class="form-control" style="width: 300px;">
         <option value="todos" selected>--- Mostrar Todos ---</option>
-        <option value="10-100">10 a 100</option>
-        <option value="101-200">101 a 200</option>
-        <option value="201+">201 o más</option>
+        <option value="10-500">10 a 500</option>
+        <option value="501-5000">501 a 5000</option>
+        <option value="9999+">9999 o más</option>
     </select>
 </div>
 
@@ -73,11 +73,11 @@ Ver Puntos de Encuentro
 
                 if (valor === 'todos') {
                     mostrar = true;
-                } else if (valor === '10-100' && capacidad >= 10 && capacidad <= 100) {
+                } else if (valor === '10-500' && capacidad >= 10 && capacidad <= 500) {
                     mostrar = true;
-                } else if (valor === '101-200' && capacidad >= 101 && capacidad <= 200) {
+                } else if (valor === '501-5000' && capacidad >= 501 && capacidad <= 5000) {
                     mostrar = true;
-                } else if (valor === '201+' && capacidad >= 201) {
+                } else if (valor === '9999+' && capacidad >= 9999) {
                     mostrar = true;
                 }
 

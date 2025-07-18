@@ -9,6 +9,10 @@
   <meta http-equiv="Expires" content="0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!-- Favicons -->
+  <link href="{{ asset('assets/img/iconolptm.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -35,7 +39,7 @@
 
             <!-- Imagen centrada y redonda -->
             <div class="text-center mb-3">
-              <img src="https://www.ongproteccioncivil.cl/wp-content/uploads/2021/06/logo-gestion-de-riesgos-1024x1024.png"
+              <img src="{{ asset('assets/img/iconolptm.png') }}"
                   alt="img_logo"
                   class="rounded-circle login-logo mb-3">
               

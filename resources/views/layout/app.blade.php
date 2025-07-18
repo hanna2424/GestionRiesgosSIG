@@ -13,9 +13,9 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.21.0/dist/jquery.validate.min.js"></script>
   
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/iconolptm.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+  
   <!-- DataTables Importacion -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
@@ -66,17 +66,13 @@
         @else
           <li class="dropdown"><a href="{{ route('encuentro.create') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Agregar Punto Encuentro</span></a>
         @endif
-        @if(Session::get('rol') !== 'visitante')
-          <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
-            <ul>
-                <li class="dropdown"><a href="{{ url('/mapariesgos') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
-                <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
-                <li class="dropdown"><a href="{{ url('/mapaseguro') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
-            </ul>
-          </li>
-        @else
-          <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-radar"></i> <span>Ver Puntos de Encuentro</span></a>
-        @endif
+        <li class="dropdown"><a href="#" class="active"><i class="bi bi-radar"></i> <span>Visualizar</span><i class="bi bi-chevron-up toggle-dropdown"></i></a>
+          <ul>
+              <li class="dropdown"><a href="{{ url('/mapariesgos') }}" class="active"><i class="bi bi-exclamation-diamond"></i> <span>Riesgo</span></i></a>
+              <li class="dropdown"><a href="{{ url('/mapaencuentros') }}" class="active"><i class="bi bi-pin-map-fill"></i> <span>Encuentro</span></a>
+              <li class="dropdown"><a href="{{ url('/mapaseguro') }}" class="active"><i class="bi bi-check-circle-fill"></i> <span>Seguras</span></a>
+          </ul>
+        </li>
         <li><a href="{{ route('rriesgo.index') }}" class="active"><i class="bi bi-journal-check navicon"></i><span>Reporte</span></a></li>
         <li><a href="{{ url('/logout/') }}" class="active"><i class="bi bi-box-arrow-left navicon"></i><span>Cerrar Sesion</span></a></li>
       </ul>

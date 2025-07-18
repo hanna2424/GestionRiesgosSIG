@@ -130,4 +130,15 @@ class ZonaSeguraController extends Controller
 
         return view('seguro.listado', compact('seguro'));
     }
+
+    public function mapa()
+    {
+        if (!Session::has('usuario')) {
+            return redirect('/')->with('info', 'Debe iniciar sesión para continuar.');
+        }
+
+        $seguro = Seguro::all();
+
+        return view('seguro.mapa', compact('seguro'))->with('success', 'Datos geograficos cargados correctamente');
+    }
 }

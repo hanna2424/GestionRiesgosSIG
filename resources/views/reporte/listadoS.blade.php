@@ -61,9 +61,9 @@ Reporte Zonas Seguras
                             <td>
                                 @php
                                     $color = match($r->seguridad) {
-                                        'Seguridad Alta' => 'danger',
+                                        'Seguridad Alta' => 'success',
                                         'Seguridad Media' => 'warning',
-                                        'Seguridad Baja' => 'success',
+                                        'Seguridad Baja' => 'danger',
                                         default => 'success'
                                     };
                                 @endphp
@@ -89,7 +89,15 @@ $(document).ready(function () {
     let table = $('#tablaxd').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-        }
+        },
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Excel',
+                className: 'buttons-excel d-none'
+            }
+        ]
     });
 
     $('#btn-excel').on('click', function () {
@@ -99,7 +107,7 @@ $(document).ready(function () {
     $('#btn-custom-pdf').on('click', async function () {
         const data = table.rows({ search: 'applied' }).data().toArray();
 
-        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/rseguro';
+        const urlConsultaCompleta = 'https://gestionriesgossig.infinityfreeapp.com/mapaseguro';
 
         const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlConsultaCompleta)}&size=150`;
         const qrImage = await getBase64ImageFromURL(qrUrl).catch(() => null);

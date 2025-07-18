@@ -19,7 +19,7 @@ Nueva Zona Segura
             <div class="row">
                 <div class="col-md-6">
                     <label><b>Nombre de la Zona Segura</b></label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre de la zona segura" required><br>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre de la zona segura" required ><br>
                     <label><b>Tipo de Seguridad</b></label>
                     <select class="form-control" id="seguridad" name="seguridad" required>
                         <option value="" disabled selected>-----Seleccione------</option>
@@ -108,7 +108,6 @@ Nueva Zona Segura
                     });
                 }
             },
-            ,
             submitHandler: function(form) {
                 form.submit();
             }

@@ -16,6 +16,7 @@ Nuevo Punto de Encuentro
         <br>
         <form action="{{ route('encuentro.update', $encuentro->id) }}" id="frm_val" method="post" autocomplete="off">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-md-6">
                     <label><b>Nombre del Punto de encuentro</b></label>
@@ -60,7 +61,7 @@ Nuevo Punto de Encuentro
         $('#frm_val').validate({
             rules: {
                 nombre: { required: true, minlength: 3 },
-                capacidad: { required: true, number: true, min: 1, max: 200 },
+                capacidad: { required: true, number: true, min: 1, max: 10000 },
                 responsable: { required: true, minlength: 3 },
                 latitud: { required: true },
                 longitud: { required: true }
@@ -74,7 +75,7 @@ Nuevo Punto de Encuentro
                     required: "La capacidad es obligatoria",
                     number: "Debe ser un número válido",
                     min: "Debe ser mayor que 0",
-                    max: "No puede ser mayor a 200"
+                    max: "No puede ser mayor a 10000"
                 },
                 responsable: {
                     required: "El responsable es obligatorio",
