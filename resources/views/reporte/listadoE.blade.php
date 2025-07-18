@@ -94,7 +94,15 @@ $(document).ready(function () {
     let table = $('#tablaxd').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-        }
+        },
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Excel',
+                className: 'buttons-excel d-none'
+            }
+        ]
     });
 
     $('#btn-excel').on('click', function () {

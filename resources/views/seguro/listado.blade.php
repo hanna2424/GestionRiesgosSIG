@@ -43,9 +43,9 @@ Listado de Zonas Seguras
                             <td>
                                 @php
                                     $color = match($r->seguridad) {
-                                        'Seguridad Alta' => 'danger',
+                                        'Seguridad Alta' => 'success',
                                         'Seguridad Media' => 'warning',
-                                        'Seguridad Baja' => 'success',
+                                        'Seguridad Baja' => 'danger',
                                         default => 'success'
                                     };
                                 @endphp
