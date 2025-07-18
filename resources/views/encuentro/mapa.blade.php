@@ -34,7 +34,7 @@ Ver Puntos de Encuentro
 
         const infoWindow = new google.maps.InfoWindow();
 
-        @foreach($encuentros as $punto)
+        @foreach($encuentro as $punto)
         (function() {
             const posicion = new google.maps.LatLng({{ $punto->latitud }}, {{ $punto->longitud }});
             const marcador = new google.maps.Marker({
