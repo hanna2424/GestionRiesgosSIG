@@ -21,7 +21,7 @@ Ver Puntos de Encuentro
 <br>
 <div id="mapa-riesgos" style="border:2px solid black;height:500px;width:100%;"></div>
 
-<script type="text/javascript">
+<script>
     let mapa;
     let marcadores = [];
 
@@ -30,7 +30,6 @@ Ver Puntos de Encuentro
         mapa = new google.maps.Map(document.getElementById('mapa-riesgos'), {
             center: centro,
             zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         const infoWindow = new google.maps.InfoWindow();
@@ -42,7 +41,6 @@ Ver Puntos de Encuentro
                 position: posicion,
                 map: mapa,
                 title: "{{ $punto->nombre }}",
-                draggable: false
             });
 
             marcador.capacidad = {{ $punto->capacidad }};
@@ -61,15 +59,13 @@ Ver Puntos de Encuentro
         @endforeach
     }
 
-    window.initMap = initMap;
-
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filtroCapacidad').addEventListener('change', function () {
             const valor = this.value;
 
             marcadores.forEach(marcador => {
-                let mostrar = false;
                 const capacidad = marcador.capacidad;
+                let mostrar = false;
 
                 if (valor === 'todos') {
                     mostrar = true;
@@ -85,5 +81,8 @@ Ver Puntos de Encuentro
             });
         });
     });
+
+    window.initMap = initMap;
 </script>
+
 @endsection
